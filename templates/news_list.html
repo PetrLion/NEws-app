@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Всі новини{% endblock %}
+
+{% block content %}
+<h1>Всі новини</h1>
+<ul>
+    {% for news in all_news %}
+    <li>
+        <h2><a href="{% url 'news_detail' news.id %}">{{ news.title }}</a></h2>
+        <p>Автор: {{ news.author }} | Дата: {{ news.published_date }}</p>
+        <p>{{ news.content|truncatewords:20 }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

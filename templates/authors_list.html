@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Автори{% endblock %}
+
+{% block content %}
+<h1>Автори</h1>
+<ul>
+    {% for author in authors %}
+    <li>
+        <h2><a href="{% url 'author_news_list' author.id %}">{{ author.first_name }} {{ author.last_name }}</a></h2>
+        <p>{{ author.bio|truncatewords:2000 }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

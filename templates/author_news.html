@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Статті автора{% endblock %}
+
+{% block content %}
+<h1>Статті автора {{ author.first_name }} {{ author.last_name }}</h1>
+<ul>
+    {% for news in author_news %}
+    <li>
+        <h2><a href="{% url 'news_detail' news.id %}">{{ news.title }}</a></h2>
+        <p>Дата: {{ news.published_date }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
